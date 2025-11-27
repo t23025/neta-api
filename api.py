@@ -7,6 +7,14 @@ import sqlite3                              # 組み込みのSQLiteライブラ�
 # FastAPIアプリケーションを初期化
 app = FastAPI()
 
+app.add_middleware( #CORSの設定(異なるオリジン(場所)からのアクセスを許可)これがないとセキュリティが危ないし、検索できない
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False, #認識情報を含めるかどうか(今回は含めない)
+    allow_methods=["*"], #全てのHTTPメソッドの許可　なんで＊なのか説明できるようにしておく
+    allow_headers=["*"], #全てのHTTPヘッダーの許可
+)
+
 # データベースファイルのパスとテーブル名
 DB_NAME = "C:/Users/T23025/Desktop/まとめ/neta-app/app/api/neta.db" # SQLiteのDBファイルのパス
 TABLE_NAME = "my_table"  # 使用するテーブル名
