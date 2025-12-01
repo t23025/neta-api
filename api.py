@@ -1,5 +1,6 @@
 # db作成後、編集を書けたりアプリと連動させるときに必要。
 # 必要なモジュールをインポート
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, HTTPException  # FastAPIの基本機能とHTTPエラー処理
 from fastapi.responses import JSONResponse  # JSONレスポンスとして返すため
 from pydantic import BaseModel              # 入力データのバリデーションと型チェック
